@@ -13,10 +13,9 @@ const images = [
     },
 ];
 
-let galleryHTML = "";
-for (let i = 0; i < images.length; i += 1) {
-    galleryHTML += `<li><img src="${images[i].url}" alt="${images[i].alt}"></li>`;
-}
+const galleryList = document.querySelector(".gallery");
+const galleryMarkup = images
+    .map(({ url, alt }) => `<li><img src="${url}" alt="${alt}"></li>`)
+    .join("");
 
-const gallery = document.querySelector(".gallery");
-gallery.insertAdjacentHTML("beforeend", galleryHTML);
+galleryList.insertAdjacentHTML("beforeend", galleryMarkup);
